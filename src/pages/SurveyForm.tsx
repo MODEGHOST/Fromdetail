@@ -94,7 +94,7 @@ function SurveyForm() {
         submitData.append('pdf_file', pdfFile);
       }
 
-      const response = await fetch('http://localhost:5000/api/survey', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/survey`, {
         method: 'POST',
         body: submitData,
       });

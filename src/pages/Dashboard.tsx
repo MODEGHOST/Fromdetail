@@ -42,7 +42,7 @@ function Dashboard() {
 
   const fetchDashboardData = () => {
     setLoading(true);
-    fetch('http://localhost:5000/api/survey')
+    fetch(`${import.meta.env.VITE_API_URL}/api/survey`)
       .then(res => {
         if (!res.ok) throw new Error('Network response was not ok');
         return res.json();
@@ -71,7 +71,7 @@ function Dashboard() {
     // path typically looks like "uploads\pdf_file-169...pdf"
     // Adjust to forward slashes for matching the url
     const normalizedPath = path.replace(/\\/g, '/');
-    window.open(`http://localhost:5000/${normalizedPath}`, '_blank');
+    window.open(`${import.meta.env.VITE_API_URL}/${normalizedPath}`, '_blank');
   };
 
   if (!isAuthenticated) {
